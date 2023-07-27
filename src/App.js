@@ -7,8 +7,20 @@ class App extends Component {
     super();
 
     this.state = {
-      name: { firstName: 'Rebeca', lastName: 'Franco' },
-      company: "Facebook",
+      monsters: [
+        {
+          name: 'Frankenstein',
+        },
+        {
+          name: 'Dracula',
+        },
+        {
+          name: 'Zombie',
+        },
+        {
+          name: 'Wolfman',
+        }
+      ]
     }
   }
 
@@ -16,27 +28,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
 
-          <p>
-            Hi {this.state.name.firstName} {this.state.name.lastName}, I work at {this.state.company}
-          </p>
+        {this.state.monsters.map(monster => { return <h1>{monster.name}</h1> })}
 
-          <button onClick={() => {
-            this.setState((state, props) => {
-              return { 'name': { firstName: 'Karine', lastName: 'Dias' } }
-            }, () => {
-              console.log(this.state)
-            });
-            // this.setState({ 'name': { firstName: 'Karine', lastName: 'Dias' } });
-            // console.log(this.state)
-          }}>
-            Change Name
-          </button>
-
-        </header>
-      </div >
+      </div>
     );
   }
 }
